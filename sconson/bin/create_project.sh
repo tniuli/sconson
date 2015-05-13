@@ -45,9 +45,6 @@ mkdir ./${project_name}/common
 cp ${sconson_home}/data/common_sconscript ./${project_name}/common/SConscript
 replace_project_name ./${project_name}/common/SConscript
 
-cp ${sconson_home}/data/log.h ./${project_name}/common/
-replace_project_name ./${project_name}/common/log.h
-
 cp ${sconson_home}/data/define.h ./${project_name}/common/
 replace_project_name ./${project_name}/common/define.h
 

@@ -75,12 +75,11 @@ libstructs_proto = Glob('structs/*.proto')
 
 ##############################################################################################
 # List my sub-directories.
-env.Append(LIBS=['z'])
 env.Append(LIBS=['pthread'])
 
 env.build_sdk_includes(Glob('*.h'))
 
-libs = ['protobuf', 'event', 'bidfeed-sharelib', 'log4cpp', 'json']
+libs = []
 
 common = env.add_directory('common')
 

@@ -5,7 +5,7 @@ env = env.Clone()
 unittest_cpps = Glob('*.c[cp]*')
 common_test_sources= [Glob('#example/test/*.c[cp]*'),
                        unittest_cpps]
-libs = ['gtest', 'pthread', 'example_common', 'bidfeed-sharelib', 'event']
+libs = ['gtest', 'pthread', 'example_common']
 
 common_unittest = env.build_unittest(target = 'common_unittest',
                                   source = common_test_sources,

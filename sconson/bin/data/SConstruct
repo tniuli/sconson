@@ -161,9 +161,6 @@ Help(vars.GenerateHelpText(env))
 
 # Build flags
 #   later used to define folder bins and libs will be stored
-env.AppendUnique(LINKFLAGS = '--export-dynamic')
-env.AppendUnique(CCFLAGS = '-pthread')
-env.AppendUnique(CCFLAGS = '-D_FILE_OFFSET_BITS=64')
 env.AppendUnique(CCFLAGS = '-fPIC')
 
 if env['mode'] == 'debug':
@@ -181,14 +178,6 @@ if env['coverage']:
 if env['profile']:
     env.AppendUnique(CCFLAGS = '-pg')
     env.AppendUnique(LINKFLAGS = '-pg')
-
-if env['target'] == '32':
-    env.AppendUnique(CCFLAGS = '-m32')
-    env.AppendUnique(LINKFLAGS = '-m32')
-else:
-    env.AppendUnique(CCFLAGS = '-m64')
-    env.AppendUnique(LINKFLAGS = '-m64')
-
 
 if env['warn'] == 'all':
     env.MergeFlags('-Wall')
@@ -227,7 +216,7 @@ env['SDK_BUILD_DIR_EXAMPLE'] = env['SDK_BUILD_DIR'] + '/example'
 ### Macros used to write 64-bit constant compatibly for both 32-bit and 64-bit
 ### compiler (__UINT64_C and __INT64_C) will only be available if this macro
 ### is defined, in addition to #include <stdint.h>
-env.MergeFlags('-D__STDC_LIMIT_MACROS')
+#env.MergeFlags('-D__STDC_LIMIT_MACROS')
 
 # fix Glob bug
 # Glob use the file list returned by OS as is. So when the directory has a new
