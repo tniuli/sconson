@@ -4,7 +4,7 @@ if [ $# != 1 ] ; then
 fi 
 
 project_name=$1
-sconson_home="/data0/vad/sconson/"
+sconson_home=$(cd "$(dirname "$0")"; pwd)
 project_upper_case=$(echo $project_name | tr '[a-z]' '[A-Z]')
 
 function replace_project_name(){
